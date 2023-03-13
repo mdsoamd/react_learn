@@ -1,3 +1,10 @@
+*
+{
+  margin: 0px;
+  padding: 0px;
+}
+
+
 .App {
   text-align: center;
 }
@@ -36,3 +43,24 @@
     transform: rotate(360deg);
   }
 }
+
+
+
+
+.box
+{
+  height: 100px;
+  width: 100px;
+  background-color: red;
+}
+
+
+
+
+
+.header
+{
+    color: red;
+    background-color: palegreen;
+}
+
