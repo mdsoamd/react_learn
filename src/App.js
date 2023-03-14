@@ -1,14 +1,11 @@
 import './App.css';
-import Header from './Header';
-// import {Header,Footer} from './Header';       //* <-- Multiple function import Karne Ka Tarika
+import Student from './components/Student';
 
 
 function App() {
-  let Name = "Somad";
   return (
     <div className="App">
-            <Header/>
-            <p>{Name}</p>
+           <Student name="Somad" age={20}/>
     </div>
   );
 }
