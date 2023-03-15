@@ -1,17 +1,32 @@
 import './App.css';
 import Header from './components/Header';
-import Movie from './components/Movie';
-import movies from './movie.json';
+import React,{useState} from 'react';
+
 
 
 
 function App() {
-  let login = false
+  
+  const [num,setNum] = useState(1);              //* <-- Array disturbing
+
+
+  function inc(n){
+    setNum(num +n);
+  }
+
+  function dec(n){
+    setNum(num - n);
+  }
+
+
+
+  // let login = false
+  
   return (
     <div className="App">
 
 
-      {                                // *<-- jsx ka andar if else condition use Karne Ka Tarika
+      {/* {                                //* <-- jsx ka andar if else condition use Karne Ka Tarika
         (()=>{
           
             if(login){
@@ -21,26 +36,29 @@ function App() {
             }
 
         })()
-      }
+      } */}
       
 
       <Header/>                             {/* <-- Header component call */}
 
-      <div className='main'>
 
-        {movies.map((element ,index) => {
-          return(
-            <Movie                           //* <-- Movie component call
-            key={index} 
-            title={element.Title}
-            year={element.Year} 
-            img={element.Poster} />
-          )
-        })
+       <div className='main'>
+        
+        <h1 className='heading'>{num}</h1>
 
-        }
-           
-      </div>
+        <div className='buttons'>
+        <button className='btn' onClick={()=> inc(2)}>increment</button>
+        <button className='btn' onClick={()=> dec(1)}>decrement</button>
+        </div>
+        
+      
+        
+       </div>
+      
+
+      
+      
+      {/* <img src="/favicon.ico" alt="" /> */}
       
       
     </div>

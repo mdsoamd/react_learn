@@ -5,27 +5,51 @@
 }
 
 
-.App {
+/* .App {
   text-align: center;
   background-color: #fff;
   color: white;
   min-height: 100vh;
-}
+} */
 
 
-h1
-{
-  margin: 0;
-}
 
 
 
 .main
 {
+  /* background-color: blueviolet; */
   display:flex;
-  justify-content:space-between;
+  flex-direction: column;
+  justify-content:center;
+  align-items: center;
+  height: 90vh;
   flex-wrap: wrap;
   padding: 14px;
+}
+
+.heading
+{
+  color: black;
+  font-size: 80px;
+}
+
+
+.buttons
+{
+  display:flex;
+  justify-content:center;
+  align-items: center;
+}
+
+
+
+.btn
+{
+  background-color: rgb(59, 59, 245);
+  color: white;
+  padding: 5px;
+  margin: 5px;
 }
 
 

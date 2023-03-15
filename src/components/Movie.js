@@ -3,8 +3,8 @@ import './movie.css'
 
 const Movie = (props) => {
   return (
-    <div className="movie">
-      <img src={props.img}alt=""/>
+    <div className="movie" onClick={() => console.log(`Movie Clicked ${props.title}`)}>
+      <img src={props.img} alt=""/>
        <p>{props.title}</p>
        <p>Year: {props.year}</p>
         
