@@ -1,55 +1,50 @@
-*
+
+.App {
+  text-align: center;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+} 
+
+h1
 {
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
 }
 
-
-/* .App {
-  text-align: center;
-  background-color: #fff;
-  color: white;
-  min-height: 100vh;
-} */
-
-
-
-
-
-.main
+.header
 {
-  /* background-color: blueviolet; */
-  display:flex;
-  flex-direction: column;
-  justify-content:center;
-  align-items: center;
-  height: 90vh;
-  flex-wrap: wrap;
+  color: white;
+  background-color: #192a56;
+  width: 100%;
   padding: 14px;
 }
 
-.heading
+
+.from
 {
-  color: black;
-  font-size: 80px;
+  margin-top: 20px;
 }
 
 
-.buttons
+.data
 {
-  display:flex;
-  justify-content:center;
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  margin-top: 20px;
+  width: 100%;
 }
 
 
-
-.btn
+.data_val
 {
-  background-color: rgb(59, 59, 245);
-  color: white;
-  padding: 5px;
-  margin: 5px;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     width: 50%;
+     padding: 0px 9px 0px 9px;
+     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 
