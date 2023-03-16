@@ -8,15 +8,13 @@ import { useState } from "react";
 import DeleteIcon from '@mui/icons-material/Delete';
 
 function App() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  const [from, setFrom] = useState({});
   const [data, setData] = useState([]);
 
 
   const addData = () => {
-        setData([...data,{name,email}])
-        setName("")
-        setEmail('')
+        setData([...data,from])
+        setFrom(from)
   }
 
 
@@ -37,20 +35,20 @@ function App() {
         <Stack direction="row" spacing={2}>
 
           <TextField
-            value={name}
-            onChange={(event) => setName(event.target.value)}
+            value={from.name}
+            onChange={(event) => setFrom({...from,name:event.target.value})}
             id="outlined-basic"
             label="Name"
             variant="outlined"
           />
 
           <TextField 
-           value={email}
-           onChange={(event) => setEmail(event.target.value)}
+           value={from.email}
+           onChange={(event) => setFrom({...from,email:event.target.value})}
           id="outlined-basic" 
           label="Email" 
           variant="outlined" />
-          
+
           <Button onClick={addData} variant="contained" color="success">
             <AddIcon />
           </Button>
@@ -80,7 +78,7 @@ function App() {
                 <div className="data_val">
 
                 <h4>{element.name}</h4>
-                <h4>{ element.email}</h4>
+                <h4>{element.email}</h4>
                 <Stack>
                 <Button onClick={()=>removeItem(index)} variant="contained" color="error">
                    <DeleteIcon/>
