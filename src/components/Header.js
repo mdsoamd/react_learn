@@ -3,7 +3,7 @@ const Header = () => {
   return (
     <div className="header">
 
-        <h1> Record keeping</h1>
+        <h1> useEffect hook</h1>
        
         
         </div>

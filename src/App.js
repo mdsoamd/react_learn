@@ -1,98 +1,48 @@
 import "./App.css";
 import Header from "./components/Header";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Stack from "@mui/material/Stack";
-import AddIcon from "@mui/icons-material/Add";
-import { useState } from "react";
-import DeleteIcon from '@mui/icons-material/Delete';
+import { useState,useEffect } from "react";
 
 function App() {
-  const [from, setFrom] = useState({});
-  const [data, setData] = useState([]);
 
+  const [state,setState] = useState(0)
+  const [data,setData] = useState([])
 
-  const addData = () => {
-        setData([...data,from])
-        setFrom(from)
-  }
+  useEffect(()=>{
 
+    async function getData(){
+      const get = await fetch("https://fakestoreapi.com/products");
+      const res = await get.json();
+      setData(res);
+      console.log(res)
+    }
 
-  const removeItem = (index) => {
-    const arr = data
-    arr.splice(index,1);
-    setData([...data])
-      
-  }
+    
+    getData();
+
+    document.title = `(${state}) Http Api Call Using`
+    
+     
+  },[state]);
   
-  
-
   return (
     <div className="App">
       <Header />
-
-      <div className="from">
-        <Stack direction="row" spacing={2}>
-
-          <TextField
-            value={from.name}
-            onChange={(event) => setFrom({...from,name:event.target.value})}
-            id="outlined-basic"
-            label="Name"
-            variant="outlined"
-          />
-
-          <TextField 
-           value={from.email}
-           onChange={(event) => setFrom({...from,email:event.target.value})}
-          id="outlined-basic" 
-          label="Email" 
-          variant="outlined" />
-
-          <Button onClick={addData} variant="contained" color="success">
-            <AddIcon />
-          </Button>
-
-        </Stack>
-      </div>
-
-
-
-
-
-
-      {/* Data */}
-      <div className="data">
-         
-         <div className="data_val">
-
-           <h4>Name</h4>
-           <h4>Email</h4>
-           <h4>Remove</h4>
+      <button onClick={()=>setState(state+1)}>Click me{state}</button>
+     
+      {
+        data.map((element,index)=>{
+         return(
+          <div className="data" key={index}>
+             <h4>{element.title}</h4>
+             <h4>{element.category}</h4>
+          </div>
+         )
           
-         </div>
-
-         {
-            data.map((element,index)=>{
-              return(
-                <div className="data_val">
-
-                <h4>{element.name}</h4>
-                <h4>{element.email}</h4>
-                <Stack>
-                <Button onClick={()=>removeItem(index)} variant="contained" color="error">
-                   <DeleteIcon/>
-                  </Button>
-                  </Stack>
-               
-              </div>
-              )
-            })
-         }
-        
-      </div>
-
-
+           
+        })
+      }
+    
+      
       
     </div>
   );
