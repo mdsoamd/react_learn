@@ -1,50 +1,49 @@
 import "./App.css";
 import Header from "./components/Header";
+import Home from "./components/Home";
+import About from "./components/About";
+import Contact from "./components/Contact";
+import Error from "./components/Error";
 import { useState,useEffect } from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
+
+
+
 
 function App() {
-
-  const [state,setState] = useState(0)
-  const [data,setData] = useState([])
-
-  useEffect(()=>{
-
-    async function getData(){
-      const get = await fetch("https://fakestoreapi.com/products");
-      const res = await get.json();
-      setData(res);
-      console.log(res)
-    }
-
-    
-    getData();
-
-    document.title = `(${state}) Http Api Call Using`
-    
-     
-  },[state]);
   
   return (
+    <Router>
     <div className="App">
       <Header />
-      <button onClick={()=>setState(state+1)}>Click me{state}</button>
+      
      
-      {
-        data.map((element,index)=>{
-         return(
-          <div className="data" key={index}>
-             <h4>{element.title}</h4>
-             <h4>{element.category}</h4>
-          </div>
-         )
-          
-           
-        })
-      }
-    
+
+     <Routes>
+       
+       {/* Home */}
+      <Route path="/" element={<Home/>}/>
+       
+       {/* About */}
+      <Route path="about" element={<About/>}/>
+      
+      {/* contact */}
+      <Route path="contact" element={<Contact/>}/>
+
+      {/* Error Page not Fount */}
+      <Route path="*" element={<Error/>}/>
+
+     </Routes>
       
       
     </div>
+
+    </Router>
+
   );
 }
 
